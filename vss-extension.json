@@ -1,0 +1,68 @@
+{
+    "manifestVersion": 1,
+    "id": "build-task",
+    "name": "IIS Website Application Pool Start Stop",
+    "version": "2.0.3",
+    "publisher": "mohdaslamansari",
+	"public": true,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Tool for starting/stopping the website application pool.",
+    "categories": [
+        "Build and release"
+    ],
+	"tags": [
+        "IIS",
+        "Application Pool"
+    ],
+	"branding": {
+        "color": "rgb(34, 34, 34)",
+        "theme": "dark"
+    },
+	"content": {
+        "details": {
+            "path": "readme.md"
+        }
+      },
+	   "links": {
+	    "repository": {
+            "uri": "https://github.com/mdaslamansari/ApplicationPoolStartStop"
+        },
+        "support": {
+            "uri": "https://mdaslam.wordpress.com/"
+        }		
+    },
+	"repository": {
+        "type": "git",
+        "uri": "https://github.com/mdaslamansari/ApplicationPoolStartStop"
+    },
+	"screenshots": [
+        {
+            "path": "screenshots/screen.png"
+        }
+    ],
+    "icons": {
+        "default": "images/icon.png"        
+    },
+    "files": [
+        {
+            "path": "buildtask",
+			"addressable": true
+        }		
+    ],
+	"contributions": [
+        {
+            "id": "custom-build-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildtask"
+            }
+        }
+    ]
+}
