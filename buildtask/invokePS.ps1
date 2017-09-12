@@ -30,6 +30,10 @@ if ($Action -eq "stop")
         Stop-WebAppPool -Name $AppPoolName
         Write-Output "Application Pool - ($AppPoolName) stopped successfully!" 
     }
+     else
+    {
+        Write-Output "Application Pool - ($AppPoolName) already in stop state!"
+    }
 }
 
 if ($Action -eq "start")
@@ -40,6 +44,25 @@ if ($Action -eq "start")
     {
         Start-WebAppPool -Name $AppPoolName
         Write-Output "Application Pool - ($AppPoolName) started successfully!"
+    }
+    else
+    {
+        Write-Output "Application Pool - ($AppPoolName) already in start state!"
+    }
+}
+
+if ($Action -eq "restart")
+{
+    Write-Output "Restarting the Application Pool - ($AppPoolName)......."
+    import-module WebAdministration
+    if((Get-WebAppPoolState $AppPoolName).Value -ne 'Stopped')
+    {
+        Restart-WebAppPool -Name $AppPoolName
+        Write-Output "Application Pool - ($AppPoolName) restarted successfully!"
+    }
+    else
+    {
+        Write-Output "Application Pool - ($AppPoolName) can not be restarted as it is in stop state. Please start it first!"
     }
 }
 } -ArgumentList ($ApppoolName, $stopstart)

@@ -16,7 +16,7 @@
     "version": {
         "Major": 2,
         "Minor": 0,
-        "Patch": 3
+        "Patch": 7
     },
 	"instanceNameFormat": "Application Pool $(samplestring)",
     "inputs": [	
@@ -60,9 +60,10 @@
             "defaultValue": "",
             "options": {
                 "STOP": "STOP",
-                "START": "START"               
+                "START": "START",
+                "RESTART": "RESTART"				
         },
-		"helpMarkDown": "Select STOP or START to stop or start the application pool."
+		"helpMarkDown": "Select STOP or START or RESTART to stop or start or restart the application pool."
 		}
     ],
     "execution": {
