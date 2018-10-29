@@ -14,8 +14,9 @@ Write-Output "Action selected - $stopstart"
 $pass = ConvertTo-SecureString -AsPlainText $AdminPassword -Force
 
 $credential = new-object -typename System.Management.Automation.PSCredential -argumentlist $AdminUserName,$pass
+$session = New-PSSession -ComputerName $machinesList -Credential $credential -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck)
 
-Invoke-Command -ComputerName $machinesList -credential $credential  -ScriptBlock {
+Invoke-Command -Session $session -credential $credential  -ScriptBlock {
 
 param (
         [string]$AppPoolName,
